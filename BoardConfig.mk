@@ -44,6 +44,8 @@ BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS :=  --ramdisk_offset 0x02000000 --tags_offset 0x01e00000 --dt device/samsung/a3ulte/recovery/dt.img
 
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
+
 # Power
 TARGET_POWERHAL_VARIANT := qcom
 
@@ -53,7 +55,7 @@ BOARD_USES_QCOM_HARDWARE := true
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_USERIMAGES_USE_EXT4 := true
-#TARGET_USERIMAGES_USE_F2FS := true
+TARGET_USERIMAGES_USE_F2FS := true
 TARGET_PREBUILT_KERNEL := device/samsung/a3ulte/recovery/kernel
 
 # TWRP
@@ -62,11 +64,8 @@ TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
-TW_INTERNAL_STORAGE_PATH := "/data/media"
-TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
-TW_EXTERNAL_STORAGE_PATH := "/external_sd"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
-TW_NO_USB_STORAGE := true
-TW_MTP_DEVICE := /dev/mtp_usb
 RECOVERY_SDCARD_ON_DATA := true
+TW_INCLUDE_CRYPTO := true
+TW_NO_USB_STORAGE := true
+BOARD_SUPPRESS_SECURE_ERASE := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
